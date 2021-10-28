@@ -34,10 +34,13 @@ export default function Login() {
         if (Object.keys(error).length === 0) {
 
             dispatch(login(form))
-            auth.popupLogin = false
+
         }
     }
     const auth = useSelector(state => state.auth)
+    if (auth.login) {
+        return <Redirect to="/" />
+    }
     return (
         <div className="popup-form popup-login" id="popupLogin" style={{ display: auth.popupLogin ? 'flex' : 'none' }}>
             <div className="wrap">

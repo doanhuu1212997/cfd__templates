@@ -1,0 +1,1 @@
+export const domain = "cfd-reactjs.herokuapp.com/"

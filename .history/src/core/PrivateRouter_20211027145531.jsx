@@ -8,7 +8,9 @@ export default function PrivateRouter(props) {
     if (auth.login) {
         return <Route {...props} />
     }
-    return (
-        <Redirect to="/" />
-    )
+    else {
+        return (
+            <Redirect to="/" />
+        )
+    }
 }

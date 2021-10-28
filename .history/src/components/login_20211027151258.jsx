@@ -34,7 +34,7 @@ export default function Login() {
         if (Object.keys(error).length === 0) {
 
             dispatch(login(form))
-            auth.popupLogin = false
+
         }
     }
     const auth = useSelector(state => state.auth)

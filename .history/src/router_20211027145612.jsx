@@ -35,7 +35,7 @@ const routers = [
                 component: Register,
             },
             {
-                path: '/thong-tin-ca-nhan',
+                path: '/cfd__template/thong-tin-ca-nhan',
                 component: Profile,
                 auth: true,
                 routers: [

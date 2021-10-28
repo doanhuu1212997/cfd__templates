@@ -32,7 +32,7 @@ export default function Header() {
                         </div>
                         <span className="text">menu</span>
                     </div>
-                    <NavLink exact to="/" className="logo" >
+                    <NavLink exact to="/cfd__template" className="logo" >
                         <img src={logo} alt="" />
                         <h1>CFD</h1>
                     </NavLink>
@@ -52,7 +52,7 @@ export default function Header() {
                                 </div>
                                 <div className="sub">
                                     <Link to="">Khóa học của tôi</Link>
-                                    <Link to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
+                                    <Link to="/cfd__template/thong-tin-ca-nhan">Thông tin tài khoản</Link>
                                     <a href="#" onClick={btn_logout}>Đăng xuất</a>
                                 </div>
                             </div>
@@ -78,19 +78,19 @@ export default function Header() {
                             <NavLink to="/register">Đăng ký</NavLink>
                         </li>
                         <li >
-                            <NavLink onClick={linkLoading} exact to="/">Trang chủ</NavLink>
+                            <NavLink onClick={linkLoading} exact to="/cfd__template">Trang chủ</NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={linkLoading} to="/team">CFD Team</NavLink>
+                            <NavLink onClick={linkLoading} to="/cfd__template/team">CFD Team</NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={linkLoading} to="/courses">Khóa Học</NavLink>
+                            <NavLink onClick={linkLoading} to="/cfd__template/courses">Khóa Học</NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={linkLoading} to="/project">Dự Án</NavLink>
+                            <NavLink onClick={linkLoading} to="/cfd__template/project">Dự Án</NavLink>
                         </li>
                         <li>
-                            <NavLink onClick={linkLoading} to="/contact">Liên hệ</NavLink>
+                            <NavLink onClick={linkLoading} to="/cfd__template/contact">Liên hệ</NavLink>
                         </li>
                     </ul>
                 </nav>

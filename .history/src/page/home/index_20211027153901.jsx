@@ -21,11 +21,10 @@ export default function Home() {
         api: true,
         loading: true
     }, 'home')
-
     let apihome = homes.home
-    useEffect(async () => {
-        await dispatch(getHome())
 
+    useEffect(() => {
+        dispatch(getHome())
         if (state.api) {
             setState({
                 apihome,

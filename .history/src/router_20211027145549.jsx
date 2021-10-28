@@ -19,23 +19,23 @@ const routers = [
         component: Mainlayout,
         routers: [
             {
-                path: '/team',
+                path: '/cfd__template/team',
                 component: Team,
             },
             {
-                path: '/courses',
+                path: '/cfd__template/courses',
                 component: Courses,
             },
             {
-                path: '/course/:slug',
+                path: '/cfd__template/course/:slug',
                 component: Course_detail,
             },
             {
-                path: '/register/:slug',
+                path: '/cfd__template/register/:slug',
                 component: Register,
             },
             {
-                path: '/thong-tin-ca-nhan',
+                path: '/cfd__template/thong-tin-ca-nhan',
                 component: Profile,
                 auth: true,
                 routers: [
@@ -69,12 +69,12 @@ const routers = [
                 ]
             },
             {
-                path: '/project',
+                path: '/cfd__template/project',
                 component: Project,
 
             },
             {
-                path: '/contact',
+                path: '/cfd__template/contact',
                 component: Contact,
 
             },
