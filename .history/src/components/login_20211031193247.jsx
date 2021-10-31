@@ -37,10 +37,10 @@ export default function Login() {
 
             dispatch(login(form))
             auth.popupLogin = false
-            toast.success('🦄 Đăng nhập thành công ', {
+            toast.success('🦄 Wow so easy!', {
                 position: "top-right",
-                autoClose: 1000,
-
+                autoClose: 5000,
+                hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
@@ -51,7 +51,7 @@ export default function Login() {
             toast.error('🦄Mời bạn kiểm tra lỗi', {
                 position: "top-right",
                 autoClose: 1000,
-
+                hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,

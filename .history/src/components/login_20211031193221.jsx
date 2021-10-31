@@ -37,21 +37,15 @@ export default function Login() {
 
             dispatch(login(form))
             auth.popupLogin = false
-            toast.success('🦄 Đăng nhập thành công ', {
-                position: "top-right",
-                autoClose: 1000,
-
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            toast("Đăng nhập thành công ", {
+                position: "top-left"
+            })
         }
         else {
             toast.error('🦄Mời bạn kiểm tra lỗi', {
                 position: "top-right",
                 autoClose: 1000,
-
+                hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,

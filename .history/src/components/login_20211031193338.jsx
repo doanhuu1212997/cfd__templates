@@ -40,7 +40,7 @@ export default function Login() {
             toast.success('🦄 Đăng nhập thành công ', {
                 position: "top-right",
                 autoClose: 1000,
-
+                hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
@@ -51,7 +51,7 @@ export default function Login() {
             toast.error('🦄Mời bạn kiểm tra lỗi', {
                 position: "top-right",
                 autoClose: 1000,
-
+                hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,

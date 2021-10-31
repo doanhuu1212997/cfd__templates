@@ -66,25 +66,6 @@ export default function Register() {
             // if (res.success) {
             //     history.push(`/course/${slug}`)
             // }
-            toast.success('🦄 Đăng kí thành công ', {
-                position: "top-right",
-                autoClose: 1000,
-
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-        }
-        else {
-            toast.error('🦄Mời bạn kiểm tra lỗi', {
-                position: "top-right",
-                autoClose: 1000,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
         }
     }
     function _payment() {

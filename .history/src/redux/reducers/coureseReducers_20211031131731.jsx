@@ -1,10 +1,36 @@
 import courseApi from "../../api/courseApi"
 import createSlice from "../../core/createSlice"
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+function Notification() {
+    createNotification = (type) => {
+        return () => {
+            switch (type) {
+                case 'info':
+                    NotificationManager.info('Info message');
+                    break;
+                case 'success':
+                    NotificationManager.success('Success message', 'Title here');
+                    break;
+                case 'warning':
+                    NotificationManager.warning('Warning message', 'Close after 3000ms', 3000);
+                    break;
+                case 'error':
+                    NotificationManager.error('Error message', 'Click me!', 5000, () => {
+                        alert('callback');
+                    });
+                    break;
+            }
+        };
+    }
+}
+Notification();
+
 const initalState = {
     Detail: [],
     Related: [],
     courses: [],
     succes: []
+
 }
 export function getCoures() {
     return (dispatch) => {
@@ -48,18 +74,24 @@ let { action, reducer, TYPE } = createSlice({
             return {
                 ...state,
                 courses: action.payload,
+
+
             }
         },
         detail: function (state, action) {
             return {
                 ...state,
+
                 Detail: action.payload.data,
+
             }
         },
         related: function (state, action) {
             return {
                 ...state,
+
                 Related: action.payload.data,
+
             }
         },
         register: function (state, action) {

@@ -66,7 +66,7 @@ export default function Register() {
             // if (res.success) {
             //     history.push(`/course/${slug}`)
             // }
-            toast.success('🦄 Đăng kí thành công ', {
+            toast.success('🦄 Đăng nhập thành công ', {
                 position: "top-right",
                 autoClose: 1000,
 
@@ -80,6 +80,7 @@ export default function Register() {
             toast.error('🦄Mời bạn kiểm tra lỗi', {
                 position: "top-right",
                 autoClose: 1000,
+
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,

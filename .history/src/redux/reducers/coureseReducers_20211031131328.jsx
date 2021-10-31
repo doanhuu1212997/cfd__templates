@@ -1,10 +1,12 @@
 import courseApi from "../../api/courseApi"
 import createSlice from "../../core/createSlice"
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 const initalState = {
     Detail: [],
     Related: [],
     courses: [],
     succes: []
+
 }
 export function getCoures() {
     return (dispatch) => {
@@ -48,18 +50,24 @@ let { action, reducer, TYPE } = createSlice({
             return {
                 ...state,
                 courses: action.payload,
+
+
             }
         },
         detail: function (state, action) {
             return {
                 ...state,
+
                 Detail: action.payload.data,
+
             }
         },
         related: function (state, action) {
             return {
                 ...state,
+
                 Related: action.payload.data,
+
             }
         },
         register: function (state, action) {
