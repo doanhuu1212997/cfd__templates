@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import AppProvider from './core/AppProvider';
 import reducers from './redux/reducers';

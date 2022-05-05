@@ -93,6 +93,7 @@ label {
     z-index   : 200;
     transform : translateY(-103%);
     transition: .3s;
+
 }
 
 .headtop__progress {

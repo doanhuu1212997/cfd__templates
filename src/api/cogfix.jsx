@@ -1,1 +1,1 @@
-export const domain = "https://cfd-reactjs.herokuapp.com/"
+export const domain = "https://cfd-reactjs.herokuapp.com/";

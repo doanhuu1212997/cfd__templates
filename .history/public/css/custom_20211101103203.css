@@ -92,14 +92,7 @@ label {
     background: #000;
     z-index   : 200;
     transform : translateY(-103%);
-    transition: .3s;
-}
 
-.headtop__progress {
-    width           : 0%;
-    height          : 3px;
-    background-color: #00afab;
-    position        : absolute;
-    bottom          : -3 px;
-    left            : 0;
+    transition: .3s;
+
 }

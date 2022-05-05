@@ -1,47 +1,56 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams, useRouteMatch } from "react-router";
-import courseApi from "../../api/courseApi";
-import { getDetail, getRelated } from "../../redux/reducers/coureseReducers";
-import Course from "../../components/course";
-import Accordition from "./components/Accordition";
-import Banner from "../home/components/banner";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { useParams, useRouteMatch } from 'react-router';
+import courseApi from '../../api/courseApi';
+import { getDetail, getRelated } from '../../redux/reducers/coureseReducers'
+import Course from '../../components/course';
+import Accordition from './components/Accordition'
+import Banner from '../home/components/banner';
 export default function Course_detail() {
   let { slug } = useParams();
-
-  let dispatch = useDispatch();
-  const khoahoc = useSelector((state) => state.coures);
-  console.log(khoahoc.courses.data);
+  let dispatch = useDispatch()
+  const khoahoc = useSelector(state => state.coures)
   useEffect(() => {
-    dispatch(getDetail(slug));
-  }, [slug]);
+    Promise.all([
+      dispatch(getDetail(slug)),
+      dispatch(getRelated(slug))
+    ])
+
+  }, [slug])
   const detail = khoahoc.Detail;
-  if (!detail.content) return "Loading ....";
+  const related = khoahoc.Related;
+
+  if (!detail.content) return "Loading ...."
   return (
-    <>
-      {" "}
+    <> <div className="headtop show">
+      <div className="container-fluid">
+        <div className="headtop__left">
+          <div className="headtop__left-avatar">
+            <img src="https://www.cfdtraining.vn/uploads/course/khoa-hoc-frontend-can-ban-cfd.jpg" alt="" />
+          </div>
+          <div className="headtop__left-title">
+            <h2><strong>Frontend Newbie</strong></h2>
+            <p>Trần Nghĩa</p>
+          </div>
+        </div>
+        <div className="headtop__right">
+          <div className="headtop__right-price"><strong>3,500,000 VNĐ</strong></div>
+          <a href="https://www.cfdtraining.vn/dang-ky?id=31" className="btn main round">đăng ký</a>
+        </div>
+      </div>
+      <div className="headtop__progress" style={{ width: '32.8767%' }} />
+    </div>
+
       <main className="course-detail" id="main">
-        <section
-          className="banner"
-          style={{ bacground: `url ( ${detail.thumbnail.link})` }}
-        >
+        <section className="banner" style={{ bacground: `url ( ${detail.thumbnail.link})` }}  >
           <div className="container">
             <div className="info">
               <h1></h1>
               <div className="row">
-                <div className="date">
-                  <strong>Khai giảng:</strong> {detail.created_at}
-                </div>
-                <div className="time">
-                  <strong>Thời lượng:</strong> 18 buổi
-                </div>
+                <div className="date"><strong>Khai giảng:</strong> {detail.created_at}</div>
+                <div className="time"><strong>Thời lượng:</strong> 18 buổi</div>
               </div>
-              <div
-                className="btn white round"
-                style={{ bacgroundColor: "#70b6f1" }}
-              >
-                đăng ký
-              </div>
+              <div className="btn white round" style={{ bacgroundColor: '#70b6f1' }}>đăng ký</div>
             </div>
           </div>
           <div className="bottom">
@@ -49,8 +58,7 @@ export default function Course_detail() {
               <div className="video">
                 <div className="icon">
                   <img src="img/play-icon-white.png" alt="" />
-                </div>{" "}
-                <span>giới thiệu</span>
+                </div> <span>giới thiệu</span>
               </div>
               <div className="money">{detail.money} VND</div>
             </div>
@@ -58,53 +66,39 @@ export default function Course_detail() {
         </section>
         <section className="section-2">
           <div className="container">
-            <p className="des">
-              Many Laravel apps don’t warrant the complexity of a full front-end
-              framework like Vue or React. In this series, we’ll walk through a
-              handful of simple ways to add dynamic functionality to your apps.
-            </p>
+            <p className="des">Many Laravel apps don’t warrant the complexity of a full front-end framework like Vue or
+              React. In this series, we’ll walk through a handful of simple ways to add dynamic functionality to
+              your apps.</p>
             <h2 className="title">giới thiệu về khóa học</h2>
             <div className="cover">
               <img src="img/course-detail-img.png" alt="" />
             </div>
             <h3 className="title">nội dung khóa học</h3>
-            {detail.content.map((e, i) => (
-              <Accordition key={i} {...e} num={i + 1} />
-            ))}
+            {
+              detail.content.map((e, i) => <Accordition key={i} {...e} num={i + 1} />)
+            }
             <h3 className="title">yêu cầu cần có</h3>
             <div className="row row-check">
               <div className="col-md-6">Đã từng học qua HTML, CSS</div>
-              <div className="col-md-6">
-                Cài đặt phần mềm Photoshop, Adobe illustrator, Skype
-              </div>
+              <div className="col-md-6">Cài đặt phần mềm Photoshop,
+                Adobe illustrator, Skype</div>
             </div>
             <h3 className="title">hình thức học</h3>
             <div className="row row-check">
-              <div className="col-md-6">
-                Học offline tại văn phòng, cùng Trần Nghĩa và 3 đồng nghiệp.
-              </div>
-              <div className="col-md-6">
-                Dạy và thực hành thêm bài tập online thông qua Skype.
-              </div>
-              <div className="col-md-6">
-                Được các mentor và các bạn trong team CFD hổ trợ thông qua group
-                CFD Facebook hoặc phần mềm điều khiển máy tính.
-              </div>
-              <div className="col-md-6">
-                Thực hành 2 dự án thực tế với sự hướng dẫn của CFD Team.
-              </div>
+              <div className="col-md-6">Học offline tại văn phòng, cùng Trần Nghĩa và 3 đồng nghiệp.</div>
+              <div className="col-md-6">Dạy và thực hành thêm bài tập online
+                thông qua Skype.</div>
+              <div className="col-md-6">Được các mentor và các bạn trong team CFD hổ trợ thông qua group CFD Facebook
+                hoặc phần mềm điều khiển máy tính.</div>
+              <div className="col-md-6">Thực hành 2 dự án thực tế với sự hướng dẫn của CFD Team.</div>
             </div>
             <h3 className="title">
               <div className="date-start">lịch học</div>
-              <div className="sub">
-                *Lịch học và thời gian có thể thống nhất lại theo số đông học
-                viên.
-              </div>
+              <div className="sub">*Lịch học và thời gian có thể thống nhất lại theo số đông học viên.</div>
             </h3>
             <p>
               <strong>Ngày bắt đầu: </strong> 09/09/2020 <br />
-              <strong>Thời gian học: </strong> Thứ 3 từ 18h45-21h45, Thứ 7 từ
-              12h-15h, Chủ nhật từ 15h-18h
+              <strong>Thời gian học: </strong> Thứ 3 từ 18h45-21h45, Thứ 7 từ 12h-15h, Chủ nhật từ 15h-18h
             </p>
             <h3 className="title">Người dạy</h3>
             <div className="teaches">
@@ -114,14 +108,11 @@ export default function Course_detail() {
                 </div>
                 <div className="info">
                   <div className="name">{detail.teacher.title}</div>
-                  <div className="title">
-                    Founder CFD &amp; Creative Front-End Developer
-                  </div>
-                  <p className="intro">{detail.teacher.description}</p>
-                  <p>
-                    <strong>Website:</strong>{" "}
-                    <a href="#">{detail.teacher.website}</a>
+                  <div className="title">Founder CFD &amp; Creative Front-End Developer</div>
+                  <p className="intro">
+                    {detail.teacher.description}
                   </p>
+                  <p><strong>Website:</strong> <a href="#">{detail.teacher.website}</a></p>
                 </div>
               </div>
             </div>
@@ -149,12 +140,9 @@ export default function Course_detail() {
                     <img src="img/img.png" alt="" />
                   </a>
                   <div className="info">
-                    <a className="name" href="#">
-                      React JS
+                    <a className="name" href="#">React JS
                     </a>
-                    <p className="des">
-                      {" "}
-                      One of the best corporate fashion brands in Sydney
+                    <p className="des"> One of the best corporate fashion brands in Sydney
                     </p>
                   </div>
                   <div className="bottom">
@@ -225,10 +213,13 @@ export default function Course_detail() {
               <h3 className="sub-title">Khóa học</h3>
               <h2 className="main-title">Liên quan</h2>
             </div>
-            <div className="list row"></div>
+            <div className="list row">
+              {
+                related.map(e => <Course key={e._id} {...e} />)
+              }
+            </div>
           </div>
         </section>
-      </main>
-    </>
-  );
+      </main></>
+  )
 }
