@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Popup, userLogin, userLogout } from "../redux/reducers/authReducers";
 import { Link, NavLink } from "react-router-dom";
 import { Context } from "../core/AppProvider";
-// import logo from '../assets/img/logo.svg'
-// import avatar from "../assets/img/avt.png";
+import logo from "../assets/img/logo.svg";
+import avatar from "../assets/img/avt.png";
 export default function Header() {
   let { linkLoading } = useContext(Context);
   let dispatch = useDispatch();
@@ -32,7 +32,7 @@ export default function Header() {
             <span className="text">menu</span>
           </div>
           <NavLink exact to="/" className="logo">
-            <img src="" alt="" />
+            <img src={logo} alt="" />
             <h1>CFD</h1>
           </NavLink>
           <div className="right">
@@ -42,7 +42,7 @@ export default function Header() {
                   <a href="#" className="info">
                     <div className="name">{user.name}</div>
                     <div className="avatar">
-                      <img src="" alt="" />
+                      <img src={avatar} alt="" />
                     </div>
                   </a>
                 </div>

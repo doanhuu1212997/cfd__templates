@@ -1,3 +1,8 @@
+.course-detail .banner {
+    height: 660px;
+    background: #d2fcfb;
+    position: relative;
+}
 #footer .row {
 
     display: flex;

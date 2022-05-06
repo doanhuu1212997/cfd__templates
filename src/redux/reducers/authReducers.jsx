@@ -33,7 +33,8 @@ let { action, reducer, TYPE } = createSlice({
   reducers: {
     login: function (state, action) {
       let user = action.payload;
-      let token = action.payload.token;
+      let token = action.payload.accessToken;
+
       localStorage.setItem("login", JSON.stringify(user));
       localStorage.setItem("token", JSON.stringify(token));
       return {

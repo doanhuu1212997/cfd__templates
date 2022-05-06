@@ -6,6 +6,9 @@ import { getDetail, getRelated } from "../../redux/reducers/coureseReducers";
 import Course from "../../components/course";
 import Accordition from "./components/Accordition";
 import Banner from "../home/components/banner";
+import { Link } from "react-router-dom";
+import av1 from "../../assets/img/anhvuong.jpg";
+import av2 from "../../assets/img/trannghia.jpg";
 export default function Course_detail() {
   let { slug } = useParams();
 
@@ -17,17 +20,15 @@ export default function Course_detail() {
   }, [slug]);
   const detail = khoahoc.Detail;
   if (!detail.content) return "Loading ....";
+  console.log();
   return (
     <>
       {" "}
       <main className="course-detail" id="main">
-        <section
-          className="banner"
-          style={{ bacground: `url ( ${detail.thumbnail.link})` }}
-        >
+        <section className="banner">
           <div className="container">
             <div className="info">
-              <h1></h1>
+              <h1>{detail.title}</h1>
               <div className="row">
                 <div className="date">
                   <strong>Khai giảng:</strong> {detail.created_at}
@@ -36,12 +37,7 @@ export default function Course_detail() {
                   <strong>Thời lượng:</strong> 18 buổi
                 </div>
               </div>
-              <div
-                className="btn white round"
-                style={{ bacgroundColor: "#70b6f1" }}
-              >
-                đăng ký
-              </div>
+              <Link to={`/register/${slug}`}> đăng ký</Link>
             </div>
           </div>
           <div className="bottom">
@@ -146,7 +142,7 @@ export default function Course_detail() {
               <div className="col-md-4 course">
                 <div className="wrap">
                   <a href="#" className="cover">
-                    <img src="img/img.png" alt="" />
+                    <img src={av1} alt="" />
                   </a>
                   <div className="info">
                     <a className="name" href="#">
@@ -171,7 +167,7 @@ export default function Course_detail() {
               <div className="col-md-4 course">
                 <div className="wrap">
                   <a href="#" className="cover">
-                    <img src="img/img2.png" alt="" />
+                    <img src={av2} alt="" />
                   </a>
                   <div className="info">
                     <a className="name" href="#">
@@ -195,7 +191,7 @@ export default function Course_detail() {
               <div className="col-md-4 course">
                 <div className="wrap">
                   <a href="#" className="cover">
-                    <img src="img/img3.png" alt="" />
+                    <img src={av2} alt="" />
                   </a>
                   <div className="info">
                     <a className="name" href="#">
@@ -208,7 +204,7 @@ export default function Course_detail() {
                   <div className="bottom">
                     <div className="teacher">
                       <div className="avatar">
-                        <img src="img/avt.png" alt="" />
+                        <img src="assets/img/avt.png" alt="" />
                       </div>
                       <div className="name">Trần Nghĩa</div>
                     </div>
