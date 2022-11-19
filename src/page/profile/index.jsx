@@ -6,6 +6,7 @@ import avt from '../../assets/img/avatar-lg.png'
 export default function Profile({ children }) {
     let { url } = useRouteMatch()
     let { user } = useSelector(state => state.auth);
+    console.log(user)
 
     return (
 

@@ -6,7 +6,9 @@ let initalState = {
   user: user,
   error: null,
   loginerror: null,
-  popupLogin: false,
+  popupLogin: false,popupRes:false,
+  
+  
 };
 export function login(data) {
   return (dispatch) => {
@@ -14,12 +16,23 @@ export function login(data) {
       if (res.error) {
         dispatch({ type: TYPE.error, payload: res.message });
       } else {
-        dispatch({ type: TYPE.login, payload: res.data });
+       
+        dispatch({ type: TYPE.login, payload: res?.data});
       }
     });
   };
 }
-
+export function res(data) {
+  return (dispatch) => {
+    userApi.resgiter(data).then((res) => {
+      if (res.error) {
+        dispatch({ type: TYPE.error, payload: res.message });
+      } else {
+        dispatch({ type: TYPE.res, payload: res.data });
+      }
+    });
+  };
+}
 export function getUpdate() {
   return (dispatch) => {
     userApi.updateInfo().then((res) => {
@@ -34,13 +47,21 @@ let { action, reducer, TYPE } = createSlice({
     login: function (state, action) {
       let user = action.payload;
       let token = action.payload.accessToken;
-
+    
       localStorage.setItem("login", JSON.stringify(user));
       localStorage.setItem("token", JSON.stringify(token));
       return {
         ...state,
         login: true,
-        user,
+        user
+      };
+    },  
+      res: function (state, action) {
+      console.log(action.payload)
+
+      return {
+        ...state,
+    
       };
     },
     logout: function (state, action) {
@@ -62,6 +83,12 @@ let { action, reducer, TYPE } = createSlice({
       return {
         ...state,
         popupLogin: action.payload,
+      };
+    },
+    popupRes: function (state, action) {
+      return {
+        ...state,
+        popupRes: action.payload,
       };
     },
     updateinfor: function (state, action) {

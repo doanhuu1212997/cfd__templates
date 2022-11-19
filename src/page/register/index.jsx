@@ -191,7 +191,7 @@ export default function Register() {
                   </div>
                 </label>
                 <label className="disable">
-                  <p>Sử dụng COIN</p>
+                  <p>GenDer</p>
                   <div className="checkcontainer">
                     <input
                       type="radio"
@@ -202,11 +202,7 @@ export default function Register() {
                     />{" "}
                     Nam
                     <span className="checkmark" />
-                  </div>
-                </label>
-                <label className="disable">
-                  <p>Sử dụng COIN</p>
-                  <div className="checkcontainer">
+                  </div> <div className="checkcontainer">
                     <input
                       type="radio"
                       value="female"
@@ -218,6 +214,7 @@ export default function Register() {
                     <span className="checkmark" />
                   </div>
                 </label>
+               
                 <label className="disable">
                   <p>Khóa</p>
                   <select name="gender2" id="" onChange={inputChang}>

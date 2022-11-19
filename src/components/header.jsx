@@ -16,6 +16,8 @@ export default function Header() {
   }
   const auth = useSelector((state) => state.auth);
   const user = auth.user;
+  console.log(user)
+  
   function btn_logout() {
     dispatch(userLogout());
   }
@@ -48,7 +50,7 @@ export default function Header() {
                 </div>
                 <div className="hamberger"></div>
                 <div className="sub">
-                  <Link to="">Khóa học của tôi</Link>
+                  <Link to="/thong-tin-ca-nhan/course">Khóa học của tôi</Link>
                   <Link to="/thong-tin-ca-nhan">Thông tin tài khoản</Link>
                   <a href="#" onClick={btn_logout}>
                     Đăng xuất

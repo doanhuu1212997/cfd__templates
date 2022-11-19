@@ -43,8 +43,6 @@ function App({ children, reducers = {} }) {
         store = createStore(reducers, composeEnhancers(applyMiddleware(thunkFake)))
 
     }
-
-
     return (
         <Provider store={store} >
             <Context.Provider value={{ linkLoading, updateInfo }}>

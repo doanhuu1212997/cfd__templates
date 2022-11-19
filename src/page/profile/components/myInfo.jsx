@@ -9,6 +9,7 @@ import { Context } from '../../../core/AppProvider';
 
 export default function MyInfor() {
     let { user } = useSelector(state => state.auth)
+    console.log(user)
     let { updateInfo } = useContext(Context)
     let { form, error, inputChang, check } = useFormValiDate({
         name: user.name,
@@ -50,7 +51,7 @@ export default function MyInfor() {
         let error = check();
         if (Object.keys(error).length === 0) {
             let res = await userApi.updateInfo(form);
-
+            console.log(res)
             if (res.data) {
                 updateInfo(res.data)
             }

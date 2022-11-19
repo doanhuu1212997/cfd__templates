@@ -14,7 +14,7 @@ export default function Course({
     <div className="col-md-4 course">
       <div className="wrap">
         <Link className="cover" to={`/course/${id}`}>
-          <img src={thumbnail.link} alt="" />
+          {/* <img src={thumbnail.link} alt="" /> */}
           {status === "dang-dien-ra" ? (
             <span className="badge b1">Dang Diễn Ra</span>
           ) : status === "da-ket-thuc" ? (

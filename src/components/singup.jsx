@@ -1,18 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
 import {
-  Popup,
-  userLogin,
-  login,
-  loginerror
+
+  res
 } from "../redux/reducers/authReducers";
 import useFormValiDate from "../core/useFormValiDate";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-export default function Login() {
+export default function Singup() {
   let dispatch = useDispatch();
-  const auth1 = useSelector((state) => state.auth);
 
   let { form, error, inputChang, check } = useFormValiDate(
     {
@@ -44,21 +40,29 @@ export default function Login() {
     let error = check();
 
     if (Object.keys(error).length === 0) {
-      let payload= await dispatch(login(form));
-      console.log(auth?.token)
-      // if(payload?.accessToken){
-      //   auth.popupLogin = false;    
-      //   toast.success("🦄 Đăng nhập thành công ", {
-      //       position: "top-right",
-      //       autoClose: 1000,
-    
-      //       closeOnClick: true,
-      //       pauseOnHover: true,
-      //       draggable: true,
-      //       progress: undefined,
-      //     });
-      // }
-    } 
+      let payload = dispatch(login(form));
+      console.log(payload);
+      auth.popupLogin = false;
+      // toast.success("🦄 Đăng nhập thành công ", {
+      //   position: "top-right",
+      //   autoClose: 1000,
+
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+    } else {
+      // toast.error("🦄Mời bạn kiểm tra lỗi", {
+      //   position: "top-right",
+      //   autoClose: 1000,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
+      auth.popupLogin = true;
+    }
   }
   const auth = useSelector((state) => state.auth);
   return (
@@ -71,7 +75,7 @@ export default function Login() {
         <div className="wrap">
           {/* login-form */}
           <div className="ct_login" style={{ display: "block" }}>
-            <h2 className="title">Đăng nhập</h2>
+            <h2 className="title">Đăng kí tài khoản</h2>
             {auth.error ? <p className="error_form"> {auth.error} </p> : null}
             <input
               name="username"
@@ -105,7 +109,7 @@ export default function Login() {
               </a>
             </div>
             <div className="btn rect main btn-login" onClick={_btnlogin}>
-              đăng nhập
+              Đăng kí
             </div>
            
             <div className="close">
